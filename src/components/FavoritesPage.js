@@ -1,17 +1,18 @@
 import React from 'react';
+import MovieCard from './MovieCard';
 
 function FavoritesPage({ favorites }) {
   return (
-    <div className="favorites-page">
-      <h1>Favorites</h1>
+    <div>
+      <h1 className="h1-fav">Your Favorite Movies and Shows</h1>
       {favorites && favorites.length > 0 ? (
-        <ul>
+        <div className="favorites-page">
           {favorites.map((favorite) => (
-            <li key={favorite.id}>{favorite.title}</li>
+            <MovieCard key={favorite.id} movie={favorite} />
           ))}
-        </ul>
+        </div>
       ) : (
-        <p>No favorites added yet.</p>
+        <p className="p-fav">Seems like you haven't added any Movie or TV Show to your favorites yet.</p>
       )}
     </div>
   );
